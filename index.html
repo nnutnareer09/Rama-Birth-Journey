@@ -86,11 +86,6 @@ nav.main a.active{color:var(--purple-deep);font-weight:700;box-shadow:inset 0 -2
 .ask-tel:hover{background:var(--purple);color:#fff}
 .ask-hours{margin-top:10px;font-size:.78rem;color:var(--ink-2);line-height:1.6}
 
-/* music pill */
-.music-card{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:12px 16px}
-.music-card button{border:none;cursor:pointer;background:var(--lav);color:var(--purple-deep);width:38px;height:38px;border-radius:50%;font-size:1rem;display:grid;place-items:center;transition:.2s;flex:0 0 auto}
-.music-card button.on{background:var(--purple);color:#fff}
-.music-card small{font-size:.75rem;color:var(--ink-2);line-height:1.45}
 
 /* ---------- Sections ---------- */
 .content{display:flex;flex-direction:column;gap:26px;min-width:0}
@@ -235,21 +230,15 @@ footer a:hover{color:#fff;text-decoration:underline}
     <div class="side-card">
       <h3>เลือกชมสถานที่</h3>
       <ul class="place-list" id="placeList">
-        <li><a href="#opd" data-target="opd"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24"><rect x="5.5" y="4.5" width="13" height="16" rx="2"/><path d="M9 4.5h6M9 10h6M9 13.5h6M9 17h3.5"/></svg></span><span><b>หน่วยตรวจผู้ป่วยนอกสูติกรรมฯ</b><span>Obstetric &amp; Family Planning OPD</span></span><span class="arrow">›</span></a></li>
+        <li><a href="#opd" data-target="opd"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24"><rect x="5.5" y="4.5" width="13" height="16" rx="2"/><path d="M9 4.5h6M9 10h6M9 13.5h6M9 17h3.5"/></svg></span><span><b>หน่วยตรวจผู้ป่วยนอก<br>สูติกรรมฯ</b><span>Obstetric &amp; Family Planning OPD</span></span><span class="arrow">›</span></a></li>
         <li><a href="#labor" data-target="labor"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24"><path d="M3 18.5v-11"/><path d="M3 14.5h18v4"/><path d="M21 14.5v-2a3 3 0 0 0-3-3h-8v5"/><circle cx="6.5" cy="11" r="1.6"/></svg></span><span><b>ห้องคลอด</b><span>Labor Room</span></span><span class="arrow">›</span></a></li>
         <li><a href="#ward1" data-target="ward1"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24"><path d="M12 20s-7.2-4.5-9.1-8.6C1.5 8.2 3.5 5.2 6.7 5.2c2 0 3.5 1.1 4.3 2.5.8-1.4 2.3-2.5 4.3-2.5 3.2 0 5.2 3 3.8 6.2C19.2 15.5 12 20 12 20z"/></svg></span><span><b>หอผู้ป่วยสูติกรรม 1</b><span>Obstetrics Ward 1</span></span><span class="arrow">›</span></a></li>
         <li><a href="#premium" data-target="premium"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24"><path d="M12 4l2.35 4.9 5.35.7-3.93 3.73.99 5.32L12 16.1l-4.76 2.55.99-5.32L4.3 9.6l5.35-.7z"/></svg></span><span><b>หอผู้ป่วยสูติกรรมพิเศษ</b><span>Premium Obstetrics Ward</span></span><span class="arrow">›</span></a></li>
       </ul>
     </div>
 
-    <div class="music-card">
-      <button id="musicBtn" class="on" aria-label="เปิด/ปิดเพลงประกอบ">♪</button>
-      <small><b>เพลงประกอบขณะชมวิดีโอ</b><br>กดเพื่อเปิด–ปิดเสียงเพลง</small>
-    </div>
-
     <div class="ask-card" id="contact">
-      <h4>มีคำถามเพิ่มเติม?</h4>
-      <p>ทีมงานยินดีให้คำแนะนำ</p>
+      <h4>ติดต่อสอบถามเพิ่มเติม</h4>
       <a class="ask-tel" href="tel:022011135">โทร 0-2201-1135</a>
       <div class="ask-hours">หน่วยตรวจผู้ป่วยนอกสูติกรรมฯ<br>จันทร์–ศุกร์ 07.00–12.00 น. และ 13.00–15.00 น.</div>
     </div>
@@ -307,7 +296,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 
       <div class="media-grid">
         <div>
-          <div class="video-box"><video src="labor-room.mp4" poster="poster-labor.jpg" controls muted playsinline preload="metadata"></video></div>
+          <div class="video-box"><video src="labor-room.mp4" poster="poster-labor.jpg" controls playsinline preload="metadata"></video></div>
           <div class="route-chip"><span class="dot">▶</span><span>เส้นทางในวิดีโอ: เดินไปห้องคลอด ชั้น 4 → ป้ายห้องคลอด → เดินเข้าห้องคลอด → บรรยากาศภายใน → ห้อง Nursery</span></div>
         </div>
         <div class="gal">
@@ -337,16 +326,16 @@ footer a:hover{color:#fff;text-decoration:underline}
 
       <div class="media-grid">
         <div>
-          <div class="video-box"><video src="ward1.mp4" poster="poster-ward1.jpg" controls muted playsinline preload="metadata"></video></div>
+          <div class="video-box"><video src="ward1.mp4" poster="poster-ward1.jpg" controls playsinline preload="metadata"></video></div>
           <div class="route-chip"><span class="dot">▶</span><span>เส้นทางในวิดีโอ: ทางเข้าหอผู้ป่วย → เดินเข้าวอร์ด → บรรยากาศภายในวอร์ด → ห้อง Nursery</span></div>
         </div>
         <div class="gal">
           <h5>Gallery <button data-open="w1">ดูทั้งหมด →</button></h5>
           <div class="gal-grid">
             <img src="w1-01.jpg" alt="ทางเข้าหอผู้ป่วยสูติกรรม 1" data-gal="w1" data-i="0">
-            <img src="w1-02.jpg" alt="ทางเดินภายในวอร์ด" data-gal="w1" data-i="1">
+            <img src="w1-02.jpg" alt="ห้องนมแม่" data-gal="w1" data-i="1">
             <img src="w1-03.jpg" alt="บรรยากาศภายในหอผู้ป่วย" data-gal="w1" data-i="2">
-            <img src="w1-04.jpg" alt="ห้อง Nursery" data-gal="w1" data-i="3">
+            <img src="w1-04.jpg" alt="ห้องเด็ก (Nursery)" data-gal="w1" data-i="3">
           </div>
         </div>
       </div>
@@ -367,16 +356,16 @@ footer a:hover{color:#fff;text-decoration:underline}
 
       <div class="media-grid">
         <div>
-          <div class="video-box"><video src="premium-ward.mp4" poster="poster-premium.jpg" controls muted playsinline preload="metadata"></video></div>
+          <div class="video-box"><video src="premium-ward.mp4" poster="poster-premium.jpg" controls playsinline preload="metadata"></video></div>
           <div class="route-chip"><span class="dot">▶</span><span>เส้นทางในวิดีโอ: เดินทางไปหอผู้ป่วยพิเศษ → เดินเข้าหอผู้ป่วย → ชมภายในห้องพัก</span></div>
         </div>
         <div class="gal">
           <h5>Gallery <button data-open="pw">ดูทั้งหมด →</button></h5>
           <div class="gal-grid">
-            <img src="pw-01.jpg" alt="ทางเดินไปหอผู้ป่วยสูติกรรมพิเศษ" data-gal="pw" data-i="0">
-            <img src="pw-02.jpg" alt="ทางเข้าหอผู้ป่วยพิเศษ" data-gal="pw" data-i="1">
-            <img src="pw-03.jpg" alt="ภายในห้องพักพิเศษ" data-gal="pw" data-i="2">
-            <img src="pw-04.jpg" alt="มุมพักผ่อนภายในห้องพัก" data-gal="pw" data-i="3">
+            <img src="pw-01.jpg" alt="ทางเข้าหอผู้ป่วยพิเศษสูติ–นรีเวช" data-gal="pw" data-i="0">
+            <img src="pw-03.jpg" alt="ห้องพักผู้ป่วยพิเศษ" data-gal="pw" data-i="2">
+            <img src="pw-04.jpg" alt="มุมโต๊ะอาหารและโซฟา" data-gal="pw" data-i="3">
+            <img src="pw-06.jpg" alt="ห้องน้ำภายในห้องพัก" data-gal="pw" data-i="5">
           </div>
         </div>
       </div>
@@ -463,8 +452,6 @@ footer a:hover{color:#fff;text-decoration:underline}
   </div>
 </div>
 
-<audio id="bgMusic" src="homebound.mp3" loop preload="none"></audio>
-
 <script>
 /* ---------- mobile menu ---------- */
 const menuBtn=document.getElementById('menuBtn'),mainNav=document.getElementById('mainNav');
@@ -513,15 +500,17 @@ const GAL={
   ]},
   w1:{cap:"หอผู้ป่วยสูติกรรม 1",items:[
     ["w1-01.jpg","ทางเข้าหอผู้ป่วยสูติกรรม 1"],
-    ["w1-02.jpg","ทางเดินภายในวอร์ด"],
+    ["w1-02.jpg","ห้องนมแม่"],
     ["w1-03.jpg","บรรยากาศภายในหอผู้ป่วย"],
-    ["w1-04.jpg","ห้อง Nursery"],
+    ["w1-04.jpg","ห้องเด็ก (Nursery)"],
   ]},
   pw:{cap:"หอผู้ป่วยสูติกรรมพิเศษ",items:[
-    ["pw-01.jpg","ทางเดินไปหอผู้ป่วยสูติกรรมพิเศษ"],
-    ["pw-02.jpg","ทางเข้าหอผู้ป่วยพิเศษ"],
-    ["pw-03.jpg","ภายในห้องพักพิเศษ"],
-    ["pw-04.jpg","มุมพักผ่อนภายในห้องพัก"],
+    ["pw-01.jpg","ทางเข้าหอผู้ป่วยพิเศษสูติ–นรีเวช"],
+    ["pw-02.jpg","ทางเดินภายในหอผู้ป่วย"],
+    ["pw-03.jpg","ห้องพักผู้ป่วยพิเศษ"],
+    ["pw-04.jpg","มุมโต๊ะอาหารและโซฟา"],
+    ["pw-05.jpg","ตู้เย็นและตู้เก็บของภายในห้องพัก"],
+    ["pw-06.jpg","ห้องน้ำภายในห้องพัก"],
   ]},
 };
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
@@ -548,27 +537,10 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight')step(1);
 });
 
-/* ---------- soothing music while videos play ---------- */
-const music=document.getElementById('bgMusic');
-const musicBtn=document.getElementById('musicBtn');
-music.volume=0.35;
-let musicOn=true;
-musicBtn.addEventListener('click',()=>{
-  musicOn=!musicOn;
-  musicBtn.classList.toggle('on',musicOn);
-  musicBtn.textContent=musicOn?'♪':'𝄽';
-  if(!musicOn)music.pause();
-  else if(anyPlaying())music.play().catch(()=>{});
-});
+/* ---------- play one video at a time ---------- */
 const vids=[...document.querySelectorAll('video')];
-function anyPlaying(){return vids.some(v=>!v.paused&&!v.ended);}
 vids.forEach(v=>{
-  v.addEventListener('play',()=>{
-    vids.forEach(o=>{if(o!==v)o.pause();});   /* เล่นทีละคลิป */
-    if(musicOn)music.play().catch(()=>{});
-  });
-  v.addEventListener('pause',()=>{if(!anyPlaying())music.pause();});
-  v.addEventListener('ended',()=>{if(!anyPlaying())music.pause();});
+  v.addEventListener('play',()=>{vids.forEach(o=>{if(o!==v)o.pause();});});
 });
 </script>
 </body>
