@@ -8,180 +8,197 @@
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Prompt:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Prompt:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --purple:#5D4A8A;
-  --purple-deep:#443465;
-  --purple-soft:#8A77B5;
-  --lav:#EDE7F6;
-  --lav-2:#F7F4FB;
-  --pink:#F5E9F0;
-  --ink:#3A3050;
-  --ink-2:#6E6488;
-  --line:#E5DEF2;
+  --purple-deep:#49366B;   /* deep purple */
+  --purple:#59457C;        /* purple */
+  --purple-soft:#8A7AA8;
+  --lav:#EEE7F4;
+  --lav-2:#F5F0F8;         /* soft lavender */
+  --ivory:#FFFCFA;         /* warm ivory */
+  --gold:#B9945A;          /* champagne gold (icons, lines) */
+  --gold-text:#94733F;     /* darker gold for readable text */
+  --gold-line:#E4D5BD;
+  --ink:#342B45;           /* dark text */
+  --ink-2:#6B6280;
+  --line:#ECE5F1;
   --white:#FFFFFF;
-  --radius:18px;
+  --radius:16px;
   --maxw:1200px;
-  --shadow:0 10px 30px rgba(68,52,101,.10);
+  --shadow:0 1px 2px rgba(73,54,107,.04),0 10px 28px rgba(73,54,107,.06);
+  --ease:.25s ease;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Sarabun',sans-serif;color:var(--ink);background:#FDFCFE;line-height:1.75}
+body{font-family:'Sarabun',sans-serif;color:var(--ink);background:var(--ivory);line-height:1.75;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .nw{white-space:nowrap}
 .en{font-family:'Playfair Display',serif}
-h2,h3,h4,h5,h6,.brand-name b,nav.main a,th,.hero-text h2,.pt b,.val b,.values-lead b{font-family:'Prompt',sans-serif}
-.icn{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.icn-lg{width:26px;height:26px}
+h2,h3,h4,h5,h6,.brand-name b,nav.main a,th,.pt b,.val b,.values-lead b{font-family:'Prompt',sans-serif}
+.icn{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.icn-lg{width:28px;height:28px;stroke-width:1.5}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
 
 /* ---------- Header ---------- */
-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:100;background:rgba(255,252,250,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .head-in{max-width:var(--maxw);margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
-.brand{display:flex;align-items:center;gap:11px}
+.brand{display:flex;align-items:center;gap:12px}
 .brand img{height:44px;width:auto}
 .brand-name{line-height:1.25}
-.brand-name b{color:var(--purple-deep);font-size:1.02rem;font-weight:700}
-.brand-name span{display:block;font-size:.78rem;color:var(--purple-soft);font-weight:500}
-nav.main{margin-left:auto;display:flex;gap:4px;align-items:center}
-nav.main a{padding:8px 13px;border-radius:10px;font-size:.88rem;font-weight:500;color:var(--ink-2);transition:.2s}
-nav.main a:hover{background:var(--lav-2);color:var(--purple-deep)}
-nav.main a.active{color:var(--purple-deep);font-weight:700;box-shadow:inset 0 -2.5px 0 var(--purple)}
-.menu-btn{display:none;background:none;border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font-size:1.05rem;color:var(--purple-deep);cursor:pointer}
+.brand-name b{color:var(--purple-deep);font-size:1.02rem;font-weight:600;letter-spacing:.01em}
+.brand-name span{display:block;font-family:'Playfair Display',serif;font-style:italic;font-size:.84rem;color:var(--gold-text);font-weight:500}
+nav.main{margin-left:auto;display:flex;gap:2px;align-items:center}
+nav.main a{position:relative;padding:8px 14px;border-radius:10px;font-size:.88rem;font-weight:400;color:var(--ink-2);transition:color var(--ease),background var(--ease)}
+nav.main a:hover{color:var(--purple-deep);background:var(--lav-2)}
+nav.main a.active{color:var(--purple-deep);font-weight:500}
+nav.main a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:1.5px;border-radius:2px;background:var(--gold)}
+.menu-btn{display:none;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:7px 9px;color:var(--purple-deep);cursor:pointer;line-height:0}
 
 /* ---------- Hero ---------- */
-.hero{background:linear-gradient(115deg,#F4EEF8 0%,#F9F1F4 55%,#FBEFF0 100%);border-bottom:1px solid var(--line);overflow:hidden}
-.hero-in{max-width:var(--maxw);margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:20px;min-height:380px}
-.hero-text{padding:48px 0}
-.hero-text h1{font-size:clamp(2rem,4.4vw,3rem);line-height:1.12;color:var(--purple-deep)}
-.hero-text h2{font-size:clamp(1.15rem,2.3vw,1.6rem);color:var(--purple);margin-top:6px;font-weight:700}
-.hero-text p{margin-top:16px;color:var(--ink-2);font-size:1rem;max-width:44ch}
-.hero-points{margin-top:26px;display:flex;gap:28px;flex-wrap:wrap}
-.pt{display:flex;align-items:center;gap:11px}
-.pt .ic{width:44px;height:44px;border-radius:50%;background:#fff;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--purple);box-shadow:0 4px 10px rgba(93,74,138,.12)}
-.pt b{display:block;font-size:.9rem;color:var(--purple-deep);line-height:1.35}
+.hero{background:linear-gradient(110deg,#F5F0F8 0%,#F9F4F8 55%,#FDF8F6 100%);border-bottom:1px solid var(--line);overflow:hidden}
+.hero-in{max-width:var(--maxw);margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:20px;min-height:400px}
+.hero-text{padding:54px 0}
+.hero-text h1{font-size:clamp(2.2rem,4.6vw,3.3rem);line-height:1.1;color:var(--purple-deep);font-weight:600;letter-spacing:-.005em}
+.hero-text h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(1.25rem,2.4vw,1.75rem);color:var(--gold-text);margin-top:6px}
+.hero-text h2::after{content:"";display:block;width:64px;height:1px;background:var(--gold);margin-top:18px}
+.hero-text p{margin-top:16px;color:var(--ink-2);font-size:1rem;max-width:46ch}
+.hero-points{margin-top:28px;display:flex;gap:0;flex-wrap:wrap}
+.pt{display:flex;align-items:center;gap:12px;padding:0 22px;border-left:1px solid var(--gold-line)}
+.pt:first-child{padding-left:0;border-left:0}
+.pt .ic{width:42px;height:42px;border-radius:50%;background:transparent;border:1px solid var(--gold-line);display:grid;place-items:center;color:var(--gold)}
+.pt b{display:block;font-size:.88rem;color:var(--purple-deep);line-height:1.35;font-weight:500}
 .pt span{font-size:.78rem;color:var(--ink-2)}
-.hero-img{position:relative;height:100%;min-height:340px}
+.hero-img{position:relative;height:100%;min-height:360px}
 .hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
   -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 22%);mask-image:linear-gradient(90deg,transparent 0%,#000 22%)}
 
 /* ---------- Layout ---------- */
-.wrap{max-width:var(--maxw);margin:0 auto;padding:34px 20px 10px;display:grid;grid-template-columns:262px 1fr;gap:24px;align-items:start}
-.side{position:sticky;top:78px;display:flex;flex-direction:column;gap:18px}
-.side-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-.side-card h3{background:var(--purple);color:#fff;font-size:.92rem;font-weight:600;padding:12px 18px;letter-spacing:.02em}
-.place-list{list-style:none}
-.place-list a{display:flex;align-items:center;gap:12px;padding:14px 16px;border-top:1px solid var(--lav-2);transition:.2s}
-.place-list a:hover{background:var(--lav-2)}
-.place-list a.active{background:var(--lav);box-shadow:inset 3px 0 0 var(--purple)}
-.place-ic{width:40px;height:40px;border-radius:12px;background:var(--lav-2);display:grid;place-items:center;color:var(--purple);flex:0 0 auto}
-.place-list b{display:block;font-size:.88rem;color:var(--purple-deep);line-height:1.3;font-weight:600}
-.place-list span{font-size:.72rem;color:var(--ink-2)}
-.place-list .arrow{margin-left:auto;color:var(--purple-soft);font-size:.85rem}
-
-
+.wrap{max-width:var(--maxw);margin:0 auto;padding:36px 20px 10px;display:grid;grid-template-columns:272px 1fr;gap:26px;align-items:start}
+.side{position:sticky;top:80px;display:flex;flex-direction:column;gap:18px}
+.side-card{background:var(--lav-2);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.side-card h3{background:var(--purple-deep);color:#fff;font-size:.92rem;font-weight:500;padding:13px 18px;letter-spacing:.02em;border-bottom:1px solid var(--gold)}
+.place-list{list-style:none;padding:10px;display:flex;flex-direction:column;gap:8px}
+.place-list a{display:flex;align-items:center;gap:13px;padding:12px 14px;background:var(--white);border:1px solid var(--line);border-radius:12px;transition:background var(--ease),border-color var(--ease),box-shadow var(--ease)}
+.place-list a:hover{border-color:var(--gold-line);box-shadow:0 4px 14px rgba(73,54,107,.06)}
+.place-list a.active{background:var(--lav);border-color:var(--gold);box-shadow:none}
+.place-list .place-ic{width:28px;height:28px;display:grid;place-items:center;color:var(--gold);flex:0 0 auto}
+.place-ic .icn{width:24px;height:24px}
+.place-list b{display:block;font-size:.88rem;color:var(--purple-deep);line-height:1.35;font-weight:600}
+.place-list span{font-size:.74rem;color:var(--ink-2);line-height:1.45}
+.place-list .arrow{margin-left:auto;color:var(--gold);line-height:0;transition:transform var(--ease)}
+.place-list a:hover .arrow{transform:translateX(2px)}
 
 /* ---------- Sections ---------- */
 .content{display:flex;flex-direction:column;gap:26px;min-width:0}
-section.place{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;scroll-margin-top:86px}
-.place-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.place-head .big-ic{width:52px;height:52px;border-radius:16px;background:var(--lav);display:grid;place-items:center;color:var(--purple-deep)}
-.place-head h2{font-size:1.3rem;color:var(--purple-deep);line-height:1.3}
-.place-head small{display:block;font-size:.85rem;color:var(--purple-soft);font-weight:500}
-.place-desc{color:var(--ink-2);font-size:.93rem;margin:-6px 0 18px;max-width:75ch}
+section.place{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px;scroll-margin-top:86px}
+.place-head{position:relative;display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:18px}
+.place-head::after{content:"";position:absolute;left:0;bottom:0;width:72px;height:1px;background:var(--gold)}
+.place-head .big-ic{width:52px;height:52px;border-radius:50%;background:transparent;border:1px solid var(--gold-line);display:grid;place-items:center;color:var(--gold);flex:0 0 auto}
+.place-head h2{font-size:1.32rem;color:var(--purple-deep);line-height:1.35;font-weight:600}
+.place-head small{display:block;font-family:'Playfair Display',serif;font-size:.95rem;color:var(--purple-soft);font-weight:500;margin-top:2px}
+.place-desc{color:var(--ink-2);font-size:.95rem;margin:0 0 22px;max-width:75ch}
 
-.media-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:start}
-.video-box{position:relative;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 12px 28px rgba(68,52,101,.18)}
+.media-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+.video-box{position:relative;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 10px 26px rgba(73,54,107,.12)}
 .video-box video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
-.gal h5{font-size:.95rem;color:var(--purple-deep);font-weight:700;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.gal h5 button{background:none;border:none;cursor:pointer;font-family:inherit;font-size:.8rem;color:var(--purple);font-weight:600;display:inline-flex;gap:6px;align-items:center}
-.gal h5 button:hover{text-decoration:underline}
+.gal h5{font-size:.95rem;color:var(--purple-deep);font-weight:500;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;letter-spacing:.02em}
+.gal h5 button{background:none;border:none;cursor:pointer;font-family:inherit;font-size:.82rem;color:var(--gold-text);font-weight:600;display:inline-flex;gap:6px;align-items:center;transition:color var(--ease)}
+.gal h5 button:hover{color:var(--purple-deep)}
 .gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.gal-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;cursor:pointer;transition:.25s;border:1px solid var(--line)}
-.gal-grid img:hover{transform:scale(1.025);box-shadow:0 8px 18px rgba(68,52,101,.2)}
+.gal-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;cursor:pointer;transition:opacity var(--ease),box-shadow var(--ease);border:1px solid var(--line)}
+.gal-grid img:hover{opacity:.92;box-shadow:0 6px 16px rgba(73,54,107,.14)}
 
-.contact-line{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 22px;background:var(--lav-2);border:1px dashed var(--line);border-radius:12px;padding:12px 18px;font-size:.86rem;color:var(--ink-2)}
+.contact-line{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 26px;background:var(--ivory);border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:10px;padding:13px 20px;font-size:.87rem;color:var(--ink-2)}
 .contact-line b{color:var(--purple-deep);font-weight:600}
-.contact-line a{color:var(--purple);font-weight:700}
-.contact-line a:hover{text-decoration:underline}
+.contact-line a{color:var(--purple);font-weight:600;text-decoration:underline;text-decoration-color:var(--gold-line);text-underline-offset:3px}
+.contact-line a:hover{text-decoration-color:var(--gold)}
 
-/* OPD photo feature + schedule */
-.opd-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:start}
-.feature-img img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;box-shadow:0 12px 28px rgba(68,52,101,.16);cursor:pointer}
-.sched{margin-top:20px;overflow-x:auto}
-.sched h5{font-size:.95rem;color:var(--purple-deep);font-weight:700;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:.84rem;min-width:560px}
-th{background:var(--purple);color:#fff;font-weight:600;padding:9px 12px;text-align:left}
-th:first-child{border-radius:10px 0 0 0}th:last-child{border-radius:0 10px 0 0}
-td{padding:9px 12px;border-bottom:1px solid var(--lav);color:var(--ink-2);vertical-align:top}
+/* OPD video + schedule */
+.opd-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+.feature-img img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;cursor:pointer}
+.sched{margin-top:26px;overflow-x:auto}
+.sched h5{font-size:.95rem;color:var(--purple-deep);font-weight:500;margin-bottom:12px;letter-spacing:.02em}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;min-width:560px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th{background:var(--purple-deep);color:#fff;font-weight:500;padding:10px 14px;text-align:left;border-bottom:1px solid var(--gold)}
+td{padding:10px 14px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
 tr:nth-child(even) td{background:var(--lav-2)}
 td:first-child{font-weight:600;color:var(--purple-deep);white-space:nowrap}
 
 /* amenities */
-.amen{margin-top:20px;background:var(--lav-2);border:1px solid var(--line);border-radius:14px;padding:0 22px}
+.amen{margin-top:22px;background:var(--ivory);border:1px solid var(--line);border-radius:12px;padding:0 22px;transition:border-color var(--ease)}
+.amen:hover,.amen[open]{border-color:var(--gold-line)}
 .amen summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 0}
 .amen summary::-webkit-details-marker{display:none}
-.amen-t b{display:block;font-family:'Prompt',sans-serif;font-size:1rem;color:var(--purple-deep);font-weight:700;line-height:1.4}
+.amen-t b{display:block;font-family:'Prompt',sans-serif;font-size:1rem;color:var(--purple-deep);font-weight:500;line-height:1.4}
 .amen-t>span{font-size:.8rem;color:var(--ink-2)}
-.amen .chev{margin-left:auto;width:32px;height:32px;border-radius:50%;background:#fff;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--purple);flex:0 0 auto;transition:transform .25s}
+.amen .chev{margin-left:auto;width:32px;height:32px;border-radius:50%;background:var(--white);border:1px solid var(--gold-line);display:grid;place-items:center;color:var(--gold);flex:0 0 auto;transition:transform var(--ease)}
 .amen[open] .chev{transform:rotate(180deg)}
-.amen[open] summary{padding-bottom:12px}
-.amen ol{padding-bottom:20px}
-.amen ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:7px 24px;counter-reset:am}
-.amen li{counter-increment:am;font-size:.87rem;display:flex;gap:11px;align-items:baseline}
-.amen li::before{content:counter(am);flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--purple);color:#fff;font-size:.7rem;font-weight:700;display:grid;place-items:center;transform:translateY(3px)}
+.amen[open] summary{padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.amen ol{padding-bottom:20px;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;counter-reset:am}
+.amen li{counter-increment:am;font-size:.88rem;display:flex;gap:12px;align-items:baseline;color:var(--ink)}
+.amen li::before{content:counter(am);flex:0 0 auto;width:22px;height:22px;border-radius:50%;border:1px solid var(--gold-line);color:var(--gold-text);font-size:.7rem;font-weight:600;display:grid;place-items:center;transform:translateY(3px)}
 
 /* ---------- Value strip ---------- */
-.values{max-width:var(--maxw);margin:30px auto 0;padding:0 20px}
-.values-in{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 30px;display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:20px;align-items:center}
+.values{max-width:var(--maxw);margin:32px auto 0;padding:0 20px}
+.values-in{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 30px;display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:20px;align-items:center}
 .values-lead{display:flex;gap:14px;align-items:center}
-.values-lead .ic{color:var(--purple);display:grid;place-items:center}
-.values-lead b{color:var(--purple-deep);font-size:1rem;line-height:1.4;display:block}
-.values-lead span{font-size:.78rem;color:var(--ink-2)}
-.val{text-align:center}
-.val .ic{color:var(--purple);margin-bottom:6px;display:flex;justify-content:center}
-.val b{display:block;font-size:.87rem;color:var(--purple-deep);font-weight:600}
-.val span{font-size:.74rem;color:var(--ink-2)}
+.values-lead .ic{color:var(--gold);display:grid;place-items:center}
+.values-lead b{color:var(--purple-deep);font-size:1rem;line-height:1.4;display:block;font-weight:500}
+.values-lead span{font-size:.8rem;color:var(--ink-2)}
+.val{text-align:center;border-left:1px solid var(--line)}
+.val .ic{color:var(--gold);margin-bottom:6px;display:flex;justify-content:center}
+.val b{display:block;font-size:.87rem;color:var(--purple-deep);font-weight:500}
+.val span{font-size:.76rem;color:var(--ink-2)}
 
 /* ---------- Footer ---------- */
-footer{margin-top:36px;background:var(--purple-deep);color:#D9CFEA}
-.foot-in{max-width:var(--maxw);margin:0 auto;padding:34px 20px 26px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;font-size:.84rem}
-.foot-brand{display:flex;gap:13px;align-items:flex-start}
+footer{margin-top:40px;background:var(--purple-deep);color:#DCD3EA;border-top:1px solid var(--gold)}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:36px 20px 26px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;font-size:.85rem}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
 .foot-brand img{height:56px;background:#fff;border-radius:12px;padding:5px}
-.foot-brand b{color:#fff;font-size:.95rem;line-height:1.45;display:block}
-footer h6{color:#fff;font-size:.88rem;font-weight:700;margin-bottom:10px}
+.foot-brand b{color:#fff;font-size:.95rem;line-height:1.45;display:block;font-weight:500}
+footer h6{color:#fff;font-size:.88rem;font-weight:500;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(185,148,90,.45);display:inline-block}
 footer ul{list-style:none;display:flex;flex-direction:column;gap:7px}
-footer a:hover{color:#fff;text-decoration:underline}
-.foot-note{border-top:1px solid rgba(255,255,255,.15);margin-top:6px}
-.foot-note div{max-width:var(--maxw);margin:0 auto;padding:14px 20px;font-size:.72rem;color:#B9ABD6;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{transition:color var(--ease)}
+footer a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.foot-note{border-top:1px solid rgba(255,255,255,.12);margin-top:6px}
+.foot-note div{max-width:var(--maxw);margin:0 auto;padding:14px 20px;font-size:.72rem;color:#BDB1D4;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* ---------- Lightbox ---------- */
-.lightbox{position:fixed;inset:0;z-index:200;background:rgba(38,28,60,.92);display:none;align-items:center;justify-content:center;flex-direction:column;padding:26px}
+.lightbox{position:fixed;inset:0;z-index:200;background:rgba(36,27,54,.93);display:none;align-items:center;justify-content:center;flex-direction:column;padding:26px}
 .lightbox.open{display:flex}
-.lightbox img{max-width:min(92vw,1080px);max-height:76vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);object-fit:contain}
+.lightbox img{max-width:min(92vw,1080px);max-height:76vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.45);object-fit:contain}
 .lb-cap{color:#E8E0F5;font-size:.85rem;margin-top:14px;text-align:center}
 .lb-nav{display:flex;gap:14px;margin-top:14px}
-.lb-nav button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1rem;border-radius:999px;padding:9px 22px;cursor:pointer;font-family:inherit;transition:.2s}
-.lb-nav button:hover{background:rgba(255,255,255,.25)}
-.lb-x{position:absolute;top:18px;right:22px;background:none;border:none;color:#fff;font-size:1.7rem;cursor:pointer}
+.lb-nav button{background:transparent;border:1px solid rgba(185,148,90,.7);color:#fff;font-size:.95rem;border-radius:999px;padding:9px 22px;cursor:pointer;font-family:inherit;transition:background var(--ease)}
+.lb-nav button:hover{background:rgba(185,148,90,.2)}
+.lb-x{position:absolute;top:18px;right:22px;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1020px){
-  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:10px 16px;gap:2px}
+  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ivory);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:10px 16px;gap:2px}
   nav.main.open{display:flex}
-  .menu-btn{display:block}
+  nav.main a.active::after{left:14px;right:auto;width:40px}
+  .menu-btn{display:block;margin-left:auto}
   .wrap{grid-template-columns:1fr}
   .side{position:static;flex-direction:column}
   .hero-in{grid-template-columns:1fr;min-height:0}
   .hero-img{min-height:230px;order:-1;margin:0 -20px}
   .hero-img img{-webkit-mask-image:linear-gradient(180deg,#000 65%,transparent 100%);mask-image:linear-gradient(180deg,#000 65%,transparent 100%)}
-  .hero-text{padding:8px 0 38px}
+  .hero-text{padding:8px 0 40px}
   .media-grid,.opd-grid{grid-template-columns:1fr}
   .values-in{grid-template-columns:1fr 1fr;gap:22px}
   .values-lead{grid-column:1/-1}
+  .val{border-left:0}
   .foot-in{grid-template-columns:1fr}
   .amen ol{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  section.place{padding:22px 18px}
+  .pt{padding:0;border-left:0}
+  .hero-points{gap:14px 24px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
@@ -194,7 +211,7 @@ footer a:hover{color:#fff;text-decoration:underline}
       <img src="logo.png" alt="คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล">
       <span class="brand-name"><b>Ramathibodi</b><span>Birth Journey</span></span>
     </a>
-    <button class="menu-btn" id="menuBtn" aria-label="เมนู">☰</button>
+    <button class="menu-btn" id="menuBtn" aria-label="เมนู"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="main" id="mainNav">
       <a href="#top" class="active">Home</a>
       <a href="#opd" data-nav="opd">หน่วยตรวจผู้ป่วยนอกสูติกรรมฯ</a>
@@ -213,9 +230,9 @@ footer a:hover{color:#fff;text-decoration:underline}
       <h2>At Ramathibodi Hospital</h2>
       <p>พาคุณแม่และครอบครัวทำความรู้จักสถานที่และขั้นตอนการดูแล ตั้งแต่การฝากครรภ์ การเตรียมตัวคลอด การต้อนรับสมาชิกใหม่ ไปจนถึงการพักฟื้น<span class="nw">หลังคลอด</span>และเตรียมพร้อมกลับบ้าน ผ่านวิดีโอแนะนำบรรยากาศและสถานที่<span class="nw">ต่าง&nbsp;ๆ</span> ภายใน<span class="nw">โรงพยาบาลรามาธิบดี</span></p>
       <div class="hero-points">
-        <div class="pt"><span class="ic"><svg class="icn" viewBox="0 0 24 24"><path d="M12 3l7 2.6v5.2c0 4.6-3 7.6-7 9.2-4-1.6-7-4.6-7-9.2V5.6z"/><path d="M9 12l2 2 4-4.2"/></svg></span><span><b>ปลอดภัย</b><span>ได้มาตรฐานสากล</span></span></div>
-        <div class="pt"><span class="ic"><svg class="icn" viewBox="0 0 24 24"><path d="M12 20s-7.2-4.5-9.1-8.6C1.5 8.2 3.5 5.2 6.7 5.2c2 0 3.5 1.1 4.3 2.5.8-1.4 2.3-2.5 4.3-2.5 3.2 0 5.2 3 3.8 6.2C19.2 15.5 12 20 12 20z"/></svg></span><span><b>อบอุ่น</b><span>เหมือนอยู่บ้าน</span></span></div>
-        <div class="pt"><span class="ic"><svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8.5v7M8.5 12h7"/></svg></span><span><b>ดูแลด้วยทีมแพทย์</b><span>เฉพาะทาง</span></span></div>
+        <div class="pt"><span class="ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 2.6v5.2c0 4.6-3 7.6-7 9.2-4-1.6-7-4.6-7-9.2V5.6z"/><path d="M9 12l2 2 4-4.2"/></svg></span><span><b>ปลอดภัย</b><span>ได้มาตรฐานสากล</span></span></div>
+        <div class="pt"><span class="ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 13.6C18 15.9 15.6 17.9 12 20.5c-3.6-2.6-6-4.6-7.5-6.9C2.4 10.4 3.9 5.5 7.8 5.5c1.9 0 3.3 1 4.2 2.4.9-1.4 2.3-2.4 4.2-2.4 3.9 0 5.4 4.9 3.3 8.1z"/></svg></span><span><b>อบอุ่น</b><span>เหมือนอยู่บ้าน</span></span></div>
+        <div class="pt"><span class="ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-1.6a3.6 3.6 0 0 0-3.6-3.6H6.6A3.6 3.6 0 0 0 3 18.4V20"/><circle cx="9.5" cy="8" r="3.5"/><path d="M21 20v-1.6a3.6 3.6 0 0 0-2.7-3.5"/><path d="M15.5 4.6a3.5 3.5 0 0 1 0 6.8"/></svg></span><span><b>ดูแลด้วยทีมแพทย์</b><span>เฉพาะทาง</span></span></div>
       </div>
     </div>
     <div class="hero-img"><img src="banner.jpg" alt="คุณแม่และลูกน้อยแรกเกิด"></div>
@@ -229,10 +246,10 @@ footer a:hover{color:#fff;text-decoration:underline}
     <div class="side-card">
       <h3>เลือกชมสถานที่</h3>
       <ul class="place-list" id="placeList">
-        <li><a href="#opd" data-target="opd"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24"><rect x="5.5" y="4.5" width="13" height="16" rx="2"/><path d="M9 4.5h6M9 10h6M9 13.5h6M9 17h3.5"/></svg></span><span><b>หน่วยตรวจผู้ป่วยนอก<br>สูติกรรมฯ</b><span>Obstetric &amp; Family Planning OPD</span></span><span class="arrow">›</span></a></li>
-        <li><a href="#labor" data-target="labor"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24"><path d="M3 18.5v-11"/><path d="M3 14.5h18v4"/><path d="M21 14.5v-2a3 3 0 0 0-3-3h-8v5"/><circle cx="6.5" cy="11" r="1.6"/></svg></span><span><b>ห้องคลอด</b><span>Labor Room</span></span><span class="arrow">›</span></a></li>
-        <li><a href="#ward1" data-target="ward1"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24"><path d="M12 20s-7.2-4.5-9.1-8.6C1.5 8.2 3.5 5.2 6.7 5.2c2 0 3.5 1.1 4.3 2.5.8-1.4 2.3-2.5 4.3-2.5 3.2 0 5.2 3 3.8 6.2C19.2 15.5 12 20 12 20z"/></svg></span><span><b>หอผู้ป่วยสูติกรรม</b><span>Obstetrics Ward</span></span><span class="arrow">›</span></a></li>
-        <li><a href="#premium" data-target="premium"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24"><path d="M12 4l2.35 4.9 5.35.7-3.93 3.73.99 5.32L12 16.1l-4.76 2.55.99-5.32L4.3 9.6l5.35-.7z"/></svg></span><span><b>หอผู้ป่วยพิเศษสูติ-นรีเวช</b><span>Premium Obstetrics Ward</span></span><span class="arrow">›</span></a></li>
+        <li><a href="#opd" data-target="opd"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2.5" width="8" height="4" rx="1"/><path d="M16 4.5h2a2 2 0 0 1 2 2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6.5a2 2 0 0 1 2-2h2"/><path d="M12 11.5h4M12 16h4M8 11.5h.01M8 16h.01"/></svg></span><span><b>หน่วยตรวจผู้ป่วยนอก<br>สูติกรรมฯ</b><span>Obstetric &amp; Family Planning OPD</span></span><span class="arrow"><svg class="icn" style="width:16px;height:16px" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></a></li>
+        <li><a href="#labor" data-target="labor"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5V20"/><path d="M3 16.5h18V20"/><path d="M21 16.5v-3a2 2 0 0 0-2-2h-8.5v5"/><circle cx="6.6" cy="13.4" r="1.6"/></svg></span><span><b>ห้องคลอด</b><span>Labor Room</span></span><span class="arrow"><svg class="icn" style="width:16px;height:16px" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></a></li>
+        <li><a href="#ward1" data-target="ward1"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5V20"/><path d="M3 17h18v3"/><path d="M21 17v-2.5a2 2 0 0 0-2-2h-8.5V17"/><circle cx="6.6" cy="14.3" r="1.5"/><path d="M17.5 9.6s-3.1-1.9-3.1-4a1.65 1.65 0 0 1 3.1-.85 1.65 1.65 0 0 1 3.1.85c0 2.1-3.1 4-3.1 4z"/></svg></span><span><b>หอผู้ป่วยสูติกรรม</b><span>Obstetrics Ward</span></span><span class="arrow"><svg class="icn" style="width:16px;height:16px" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></a></li>
+        <li><a href="#premium" data-target="premium"><span class="place-ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5V20"/><path d="M3 17h18v3"/><path d="M21 17v-2.5a2 2 0 0 0-2-2h-8.5V17"/><circle cx="6.6" cy="14.3" r="1.5"/><path d="M17.5 2.4l.85 2.23 2.38.12-1.85 1.5.62 2.3-2-1.3-2 1.3.62-2.3-1.85-1.5 2.38-.12z"/></svg></span><span><b>หอผู้ป่วยพิเศษสูติ-นรีเวช</b><span>Premium Obstetrics Ward</span></span><span class="arrow"><svg class="icn" style="width:16px;height:16px" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span></a></li>
       </ul>
     </div>
 
@@ -243,7 +260,7 @@ footer a:hover{color:#fff;text-decoration:underline}
     <!-- ─────── 1) OPD ─────── -->
     <section class="place" id="opd">
       <div class="place-head">
-        <span class="big-ic"><svg class="icn icn-lg" viewBox="0 0 24 24"><rect x="5.5" y="4.5" width="13" height="16" rx="2"/><path d="M9 4.5h6M9 10h6M9 13.5h6M9 17h3.5"/></svg></span>
+        <span class="big-ic"><svg class="icn icn-lg" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2.5" width="8" height="4" rx="1"/><path d="M16 4.5h2a2 2 0 0 1 2 2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6.5a2 2 0 0 1 2-2h2"/><path d="M12 11.5h4M12 16h4M8 11.5h.01M8 16h.01"/></svg></span>
         <h2>หน่วยตรวจผู้ป่วยนอกสูติกรรมและวางแผนครอบครัว<small>Obstetric and Family Planning Outpatient Unit</small></h2>
       </div>
       <p class="place-desc">จุดเริ่มต้นของทุกการเดินทาง — ให้บริการฝากครรภ์ วางแผนครอบครัว และดูแลสตรีตั้งครรภ์ที่มีภาวะแทรกซ้อน โดยทีมสูติแพทย์และพยาบาลเฉพาะทาง พร้อมจุดชั่งน้ำหนัก วัดความดัน ห้องตรวจ ห้องอัลตราซาวด์ และห้องให้คำแนะนำสุขภาพครรภ์</p>
@@ -285,7 +302,7 @@ footer a:hover{color:#fff;text-decoration:underline}
     <!-- ─────── 2) Labor Room ─────── -->
     <section class="place" id="labor">
       <div class="place-head">
-        <span class="big-ic"><svg class="icn icn-lg" viewBox="0 0 24 24"><path d="M3 18.5v-11"/><path d="M3 14.5h18v4"/><path d="M21 14.5v-2a3 3 0 0 0-3-3h-8v5"/><circle cx="6.5" cy="11" r="1.6"/></svg></span>
+        <span class="big-ic"><svg class="icn icn-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5V20"/><path d="M3 16.5h18V20"/><path d="M21 16.5v-3a2 2 0 0 0-2-2h-8.5v5"/><circle cx="6.6" cy="13.4" r="1.6"/></svg></span>
         <h2>ห้องคลอด<small>Labor Room</small></h2>
       </div>
       <p class="place-desc">ห้องคลอดพร้อมเตียงคลอดปรับระดับด้วยระบบไฟฟ้า เครื่องติดตามเสียงหัวใจทารกและการหดรัดตัวของมดลูก มุมดูแลทารกแรกเกิดพร้อมเครื่องให้ความอบอุ่น โดยทีมสูติแพทย์ พยาบาลห้องคลอด และทีมกุมารแพทย์ทารกแรกเกิดดูแลตลอด 24 ชั่วโมง</p>
@@ -314,7 +331,7 @@ footer a:hover{color:#fff;text-decoration:underline}
     <!-- ─────── 3) Ward 1 ─────── -->
     <section class="place" id="ward1">
       <div class="place-head">
-        <span class="big-ic"><svg class="icn icn-lg" viewBox="0 0 24 24"><path d="M12 20s-7.2-4.5-9.1-8.6C1.5 8.2 3.5 5.2 6.7 5.2c2 0 3.5 1.1 4.3 2.5.8-1.4 2.3-2.5 4.3-2.5 3.2 0 5.2 3 3.8 6.2C19.2 15.5 12 20 12 20z"/></svg></span>
+        <span class="big-ic"><svg class="icn icn-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5V20"/><path d="M3 17h18v3"/><path d="M21 17v-2.5a2 2 0 0 0-2-2h-8.5V17"/><circle cx="6.6" cy="14.3" r="1.5"/><path d="M17.5 9.6s-3.1-1.9-3.1-4a1.65 1.65 0 0 1 3.1-.85 1.65 1.65 0 0 1 3.1.85c0 2.1-3.1 4-3.1 4z"/></svg></span>
         <h2>หอผู้ป่วยสูติกรรม<small>Obstetrics Ward</small></h2>
       </div>
       <p class="place-desc">หอผู้ป่วยสำหรับคุณแม่<span class="nw">หลังคลอด</span> ดูแลแบบแม่ลูกอยู่ด้วยกัน (rooming-in) เพื่อส่งเสริมสายใยครอบครัวและการเลี้ยงลูกด้วยนมแม่ พร้อมห้อง Nursery สำหรับดูแลทารกแรกเกิด โดยพยาบาลจะสอนการดูแลลูกน้อยทุกขั้นตอนจนคุณมั่นใจก่อนกลับบ้าน</p>
@@ -344,7 +361,7 @@ footer a:hover{color:#fff;text-decoration:underline}
     <!-- ─────── 4) Premium Ward ─────── -->
     <section class="place" id="premium">
       <div class="place-head">
-        <span class="big-ic"><svg class="icn icn-lg" viewBox="0 0 24 24"><path d="M12 4l2.35 4.9 5.35.7-3.93 3.73.99 5.32L12 16.1l-4.76 2.55.99-5.32L4.3 9.6l5.35-.7z"/></svg></span>
+        <span class="big-ic"><svg class="icn icn-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5V20"/><path d="M3 17h18v3"/><path d="M21 17v-2.5a2 2 0 0 0-2-2h-8.5V17"/><circle cx="6.6" cy="14.3" r="1.5"/><path d="M17.5 2.4l.85 2.23 2.38.12-1.85 1.5.62 2.3-2-1.3-2 1.3.62-2.3-1.85-1.5 2.38-.12z"/></svg></span>
         <h2>หอผู้ป่วยพิเศษสูติ-นรีเวช<small>Premium Obstetrics Ward</small></h2>
       </div>
       <p class="place-desc">ห้องพักเดี่ยวส่วนตัวสำหรับคุณแม่และครอบครัว บรรยากาศอบอุ่นเป็นส่วนตัว พร้อมสิ่งอำนวยความสะดวกครบครัน ให้ช่วงเวลาแรกของครอบครัวใหม่เป็นความทรงจำที่สบายใจที่สุด</p>
@@ -393,11 +410,11 @@ footer a:hover{color:#fff;text-decoration:underline}
 <!-- ═══════════ VALUES ═══════════ -->
 <section class="values">
   <div class="values-in">
-    <div class="values-lead"><span class="ic"><svg class="icn icn-lg" viewBox="0 0 24 24"><path d="M12 20s-7.2-4.5-9.1-8.6C1.5 8.2 3.5 5.2 6.7 5.2c2 0 3.5 1.1 4.3 2.5.8-1.4 2.3-2.5 4.3-2.5 3.2 0 5.2 3 3.8 6.2C19.2 15.5 12 20 12 20z"/></svg></span><span><b>เราใส่ใจในทุกช่วงเวลาสำคัญ</b><span>เพื่อให้คุณแม่และลูกน้อยได้รับประสบการณ์ที่ดีที่สุด</span></span></div>
-    <div class="val"><div class="ic"><svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8.5v7M8.5 12h7"/></svg></div><b>ทีมแพทย์เฉพาะทาง</b><span>ดูแลใกล้ชิดทุกขั้นตอน</span></div>
-    <div class="val"><div class="ic"><svg class="icn" viewBox="0 0 24 24"><polyline points="3 12 7.5 12 10 6.5 14 17.5 16.5 12 21 12"/></svg></div><b>เทคโนโลยีทันสมัย</b><span>ปลอดภัยได้มาตรฐาน</span></div>
-    <div class="val"><div class="ic"><svg class="icn" viewBox="0 0 24 24"><path d="M12 20s-7.2-4.5-9.1-8.6C1.5 8.2 3.5 5.2 6.7 5.2c2 0 3.5 1.1 4.3 2.5.8-1.4 2.3-2.5 4.3-2.5 3.2 0 5.2 3 3.8 6.2C19.2 15.5 12 20 12 20z"/></svg></div><b>บริการด้วยหัวใจ</b><span>อบอุ่น เป็นกันเอง</span></div>
-    <div class="val"><div class="ic"><svg class="icn" viewBox="0 0 24 24"><path d="M5.5 11V9a2.5 2.5 0 0 1 2.5-2.5h8A2.5 2.5 0 0 1 18.5 9v2"/><path d="M3.5 13.2a2 2 0 0 1 4 0v.8h9v-.8a2 2 0 0 1 4 0v4.8h-17z"/></svg></div><b>สะดวกสบาย</b><span>ครบครันทุกความต้องการ</span></div>
+    <div class="values-lead"><span class="ic"><svg class="icn icn-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 13.6C18 15.9 15.6 17.9 12 20.5c-3.6-2.6-6-4.6-7.5-6.9C2.4 10.4 3.9 5.5 7.8 5.5c1.9 0 3.3 1 4.2 2.4.9-1.4 2.3-2.4 4.2-2.4 3.9 0 5.4 4.9 3.3 8.1z"/></svg></span><span><b>เราใส่ใจในทุกช่วงเวลาสำคัญ</b><span>เพื่อให้คุณแม่และลูกน้อยได้รับประสบการณ์ที่ดีที่สุด</span></span></div>
+    <div class="val"><div class="ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v5a4.5 4.5 0 0 0 9 0v-5"/><path d="M9.5 13v1.5a5 5 0 0 0 10 0V13"/><circle cx="19.5" cy="11" r="2"/><path d="M4 3.5h2M13 3.5h2"/></svg></div><b>ทีมแพทย์เฉพาะทาง</b><span>ดูแลใกล้ชิดทุกขั้นตอน</span></div>
+    <div class="val"><div class="ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2.5-5.5 4 11 2.5-5.5H21"/></svg></div><b>เทคโนโลยีทันสมัย</b><span>ปลอดภัยได้มาตรฐาน</span></div>
+    <div class="val"><div class="ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 13.6C18 15.9 15.6 17.9 12 20.5c-3.6-2.6-6-4.6-7.5-6.9C2.4 10.4 3.9 5.5 7.8 5.5c1.9 0 3.3 1 4.2 2.4.9-1.4 2.3-2.4 4.2-2.4 3.9 0 5.4 4.9 3.3 8.1z"/></svg></div><b>บริการด้วยหัวใจ</b><span>อบอุ่น เป็นกันเอง</span></div>
+    <div class="val"><div class="ic"><svg class="icn" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 11V9a2.5 2.5 0 0 1 2.5-2.5h8A2.5 2.5 0 0 1 18.5 9v2"/><path d="M3.5 13.2a2 2 0 0 1 4 0v.8h9v-.8a2 2 0 0 1 4 0v4.8h-17z"/><path d="M5.5 18v1.5M18.5 18v1.5"/></svg></div><b>สะดวกสบาย</b><span>ครบครันทุกความต้องการ</span></div>
   </div>
 </section>
 
